@@ -54,10 +54,10 @@
 	<th:block th:include="include :: footer" />
 	<script th:inline="javascript">
 		var prefix = ctx + "tool/gen";
-		var editFlag = [[${@permission.hasPermi('tool:gen:edit')}]];
-		var removeFlag = [[${@permission.hasPermi('tool:gen:remove')}]];
-		var previewFlag = [[${@permission.hasPermi('tool:gen:preview')}]];
-		var codeFlag = [[${@permission.hasPermi('tool:gen:code')}]];
+		var editFlag = true;
+		var removeFlag = true;
+		var previewFlag = true;
+		var codeFlag = true;
 	
 		$(function() {
 		    var options = {

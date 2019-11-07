@@ -1,12 +1,7 @@
 package ${packageName}.domain;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-import com.ruoyi.common.annotation.Excel;
 #if($table.crud)
-import com.ruoyi.common.core.domain.BaseEntity;
 #elseif($table.tree)
-import com.ruoyi.common.core.domain.TreeEntity;
 #end
 #foreach ($import in $importList)
 import ${import};
@@ -38,12 +33,9 @@ public class ${ClassName} extends ${Entity}
 #set($comment=$column.columnComment)
 #end
 #if($parentheseIndex != -1)
-    @Excel(name = "${comment}", readConverterExp = "$column.readConverterExp()")
-#elseif($column.javaType == 'Date')
-    @Excel(name = "${comment}", width = 30, dateFormat = "yyyy-MM-dd")
-#else
-    @Excel(name = "${comment}")
-#end
+    #elseif($column.javaType == 'Date')
+    #else
+    #end
 #end
     private $column.javaType $column.javaField;
 
